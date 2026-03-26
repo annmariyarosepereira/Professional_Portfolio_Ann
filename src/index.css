@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burgundy: #3B0A0A;
+  --color-olive: #3A4A2D;
+  --color-beige: #F5F0E6;
+  --color-dark: #1F1F1F;
+  --color-light: #FAFAFA;
+
+  --font-sans: 'Inter', 'Satoshi', 'General Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  
+  --spacing-8: 0.5rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-48: 3rem;
+  --spacing-64: 4rem;
+  --spacing-96: 6rem;
+}
+
+@layer base {
+  :root {
+    --bg-color: var(--color-beige);
+  }
+
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    @apply text-dark font-sans overflow-x-hidden transition-colors duration-700 ease-in-out;
+  }
+
+  /* Smooth out background color transitions globally */
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-burgundy tracking-tight;
+  }
+
+  .stroke-text {
+    -webkit-text-stroke: 1px var(--color-beige);
+  }
+}

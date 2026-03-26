@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        const symbols = ['+', '×', '✦', '+', '×', '✦'];
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+          @keyframes sparkOut {
+            0%   { transform: translate(var(--dx1), var(--dy1)) scale(0) rotate(0deg); opacity: 1; }
+            50%  { opacity: 0.85; }
+            100% { transform: translate(var(--dx2), var(--dy2)) scale(1.2) rotate(var(--rot)); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+
+        document.addEventListener('click', function(e) {
+          for (let i = 0; i < 6; i++) {
+            const angle = (i / 6) * Math.PI * 2;
+            const dist1 = 10 + Math.random() * 10;
+            const dist2 = 35 + Math.random() * 35;
+            const el = document.createElement('span');
+            el.innerText = symbols[i % symbols.length];
+            el.style.cssText = `
+              position: fixed;
+              left: ${e.clientX}px;
+              top: ${e.clientY}px;
+              pointer-events: none;
+              user-select: none;
+              font-size: 18px;
+              color: #6b1515;
+              font-family: Georgia, serif;
+              z-index: 99999;
+              animation: sparkOut ${0.45 + Math.random() * 0.15}s ease-out forwards;
+              animation-delay: ${Math.random() * 0.06}s;
+              --dx1: ${Math.cos(angle) * dist1}px;
+              --dy1: ${Math.sin(angle) * dist1}px;
+              --dx2: ${Math.cos(angle) * dist2}px;
+              --dy2: ${Math.sin(angle) * dist2}px;
+              --rot: ${Math.random() * 180 - 90}deg;
+            `;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 700);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
