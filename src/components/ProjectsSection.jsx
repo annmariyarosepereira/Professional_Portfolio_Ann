@@ -21,7 +21,7 @@ const projects = [
     videoSrc: '/video2.mp4', // ADD VIDEO FILENAME HERE (MUST BE IN PUBLIC FOLDER)
   },
   {
-    title: 'DataMinds: ML & Analytics',
+    title: 'Customer Segmentation: ML & Analytics',
     description: 'An end-to-end data analytics pipeline covering data cleaning, EDA, predictive machine learning modeling, and insight visualization.',
     tech: ['Python', 'XGBoost', 'Scikit-learn', 'Power BI'],
     details: 'Conducted exploratory data analysis using Pandas and Seaborn. Developed and evaluated machine learning models to predict customer behavior using Scikit-Learn and XGBoost.',

@@ -9,7 +9,7 @@ const educationList = [
     location: "Punjab, India",
     degree: "Bachelor of Technology - Computer Science and Engineering",
     date: "Since August 2023",
-    details: "CGPA: 6.94"
+    details: "CGPA: 7.04"
   },
   {
     school: "St Sebastian's Higher Secondary School",
@@ -74,10 +74,10 @@ function EducationMetricWrapper({ item }) {
 
   if (item.details.includes("CGPA:")) {
     label = "CGPA: ";
-    value = 6.94;
+    value = 7.04;
     isDecimal = true;
     suffix = "";
-    finalString = "6.94";
+    finalString = "7.04";
   } else if (item.details.includes("97.4%")) {
     label = "Percentage: ";
     value = 97.4;
